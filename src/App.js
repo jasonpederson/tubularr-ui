@@ -1,12 +1,14 @@
-import './App.css';
+import React from 'react';
+import Page from './components/Page/Page';
+import Header from './components/Header/Header';
+import PageContentWrapper from './components/Page/PageContentWrapper';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-
-      </header>
-    </div>
+    <Page>
+      <Header />
+      <PageContentWrapper />
+    </Page>
   );
 }
 

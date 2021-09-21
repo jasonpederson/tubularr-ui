@@ -1,0 +1,10 @@
+@import '../../constants//colorCodes.scss';
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+  width: 100%;
+  background-color: $backgroundDark;
+}
