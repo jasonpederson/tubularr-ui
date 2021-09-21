@@ -1,0 +1,9 @@
+@import '../../constants/colorCodes';
+
+.navigation-menu-container {
+  display: flex;
+  max-width: 200px;
+  flex: 1;
+  background-color: $backgroundLight;
+  padding-top: 20px;
+}

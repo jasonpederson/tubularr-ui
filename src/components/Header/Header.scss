@@ -1,0 +1,17 @@
+@import '../../constants/colorCodes';
+
+.header-container {
+  display: flex;
+  height: 60px;
+  flex-direction: row;
+  align-self: stretch;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 30px;
+  background-color: $highlight;
+}
+
+.text {
+  font-size: 36px;
+  color: $textLight
+}
