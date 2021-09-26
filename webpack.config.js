@@ -42,6 +42,18 @@ module.exports = ({ mode } = { mode: "production" }) => {
             "sass-loader",
           ],
         },
+        {
+          test: /\.svg$/,
+          loader: 'svg-inline-loader'
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+          ],
+        },
       ]
     }
   }
