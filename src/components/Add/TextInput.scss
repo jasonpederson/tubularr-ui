@@ -1,0 +1,15 @@
+.text-input-container {
+  display: flex;
+  flex: 6;
+  flex-direction: row;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.text-input {
+  flex: 1;
+  height: 47px;
+  padding-left: 10px;
+  font-size: larges;
+  outline: none;
+}

@@ -1,0 +1,27 @@
+@import '../../constants/colorCodes.scss';
+
+.action-button-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 3px;
+}
+
+.action-button {
+  display: flex;
+  justify-content: center;
+  height: 47px;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+  background-color: $backgroundLight;
+  color: $white;
+  cursor: pointer;
+}
+
+
+.action-button:hover {
+  background-color: $highlight;
+}

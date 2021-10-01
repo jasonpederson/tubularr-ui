@@ -3,13 +3,13 @@ import { LayoutFilled, YoutubeFilled, SettingFilled, MenuUnfoldOutlined, GithubF
 import classnames from 'classnames';
 import './icons.scss';
 
-export function sidebarIcons (active ) {
+export function sidebarIcons (active) {
   return {
     dashboard: <LayoutFilled className={classnames('icon', { 'icon-active': active})}/>,
-    tubes: <YoutubeFilled className='icon' />,
-    settings: <SettingFilled className='icon' />,
-    queue: <MenuUnfoldOutlined className='icon' />,
-    github: <GithubFilled className='icon' />,
-    filter: <FilterFilled className='icon' />
+    tubes: <YoutubeFilled className={classnames('icon', { 'icon-active': active})} />,
+    settings: <SettingFilled className={classnames('icon', { 'icon-active': active})} />,
+    queue: <MenuUnfoldOutlined className={classnames('icon', { 'icon-active': active})} />,
+    github: <GithubFilled className={classnames('icon', { 'icon-active': active})} />,
+    filter: <FilterFilled className={classnames('icon', { 'icon-active': active})}s />
   };
 };
