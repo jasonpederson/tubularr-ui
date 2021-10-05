@@ -6,6 +6,7 @@ const colorCodes = {
   highlight: '#CA3E47',
   white: '#ffffff',
   black: '#000000',
+  green: '#7aa27a'
 };
 
 export default colorCodes;

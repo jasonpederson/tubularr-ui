@@ -10,17 +10,17 @@ export default [
     options: sourceResolutions
   },
   {
-    key: 'videoCodec',
+    key: 'sourceVideoCodec',
     label: 'Video Codec',
     options: videoCodecs
   },
   {
-    key: 'audioCodec',
+    key: 'sourceAudioCodec',
     label: 'Audio Codec',
     options: audioCodecs
   },
   {
-    key: 'videoExtension',
+    key: 'sourceFileExtension',
     label: 'Video Extension',
     options: videoExtensions
   }

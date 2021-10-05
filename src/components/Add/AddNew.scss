@@ -34,3 +34,10 @@ h1 {
 .verify-button {
   max-width: 1200px;
 }
+
+.add-new-indicator-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}

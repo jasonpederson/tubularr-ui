@@ -15,7 +15,7 @@ export default function AddNewDetailsForm({ sourceKey, onSubmit }) {
     <div className='add-new-details-form-container'>
     <form>
       <div className='form-row'>
-        <input {...register('title')} placeholder='Title' />
+        <input {...register('name')} placeholder='Title' />
         <input {...register('sourceKey')} placeholder='Source Key' value={ sourceKey } />
       </div>
       <div className='form-row'>
@@ -25,7 +25,7 @@ export default function AddNewDetailsForm({ sourceKey, onSubmit }) {
         </label>
         <label className='form-input-label'>
           <span className='form-input-label-text'>File Name Format</span>
-          <input {...register('nameFormat')} value='{yyyy_mm_dd}_{source}_{title}_{key}_{format}.{ext}' />
+          <input {...register('format')} value='{yyyy_mm_dd}_{source}_{title}_{key}_{format}.{ext}' />
         </label>
       </div>
       <div className='form-row space'>
@@ -69,9 +69,9 @@ export default function AddNewDetailsForm({ sourceKey, onSubmit }) {
           <span className='form-input-label-text'>Index Schedule</span>
           <select {...register('indexSchedule')}>
             <option value=''>Select...</option>
-            <option value='6'>6 Hours</option>
-            <option value='12'>12 Hours</option>
-            <option value='24'>24 Hours</option>
+            <option value={6}>6 Hours</option>
+            <option value={12}>12 Hours</option>
+            <option value={24}>24 Hours</option>
           </select>
         </label>
         <label className='form-input-label'>
@@ -80,7 +80,7 @@ export default function AddNewDetailsForm({ sourceKey, onSubmit }) {
         </label>
         <label className='form-input-label'>
           <span className='form-input-label-text'>Fallback Strategy</span>
-          <select {...register('indexSchedule')}>
+          <select {...register('fallbackStrategy')}>
             <option value=''>Select...</option>
             <option value='fail'>Fail, Do Not Attempt Download</option>
             <option value='next-best'>Get Next Best Resolution</option>
@@ -92,7 +92,7 @@ export default function AddNewDetailsForm({ sourceKey, onSubmit }) {
           <select {...register('downloadSubtitles')}>
             <option value=''>Select...</option>
             <option value='yes' onClick={ () => { setUseSubtitles(true) }}>Yes</option>
-            <option value='no'onClick={ () => { setUseSubtitles(false) }}>No</option>
+            <option value='no' onClick={ () => { setUseSubtitles(false) }}>No</option>
           </select>
         </label>
         { useSubtitles &&
@@ -114,30 +114,3 @@ export default function AddNewDetailsForm({ sourceKey, onSubmit }) {
     </div>
   );
 }
-
-
-/*
-
-        <label className='form-input-label'>
-          <span className='form-input-label-text'>Video Codec</span>
-          <select {...register('sourceVideoCodec')}>
-            <option value=''>Select...</option>
-              { videoCodecs.map((codec) => {
-                return (
-                  <option key={ codec } value={ codec }>{ codec }</option>
-                )})
-              }
-          </select>
-        </label>
-        <label className='form-input-label'>
-          <span className='form-input-label-text'>Audio Codec</span>
-          <select {...register('sourceAudioCodec')}>
-            <option value=''>Select...</option>
-              { audioCodecs.map((codec) => {
-                return (
-                  <option key={ codec } value={ codec }>{ codec }</option>
-                )})
-              }
-          </select>
-        </label>
-        */
