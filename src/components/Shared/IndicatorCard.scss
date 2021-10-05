@@ -1,0 +1,36 @@
+@import '../../constants/colorCodes.scss';
+
+.indicator-card-container {
+  display: flex;
+  min-width: 300px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  flex-direction: column;
+  background-color: $backgroundLight;
+  box-shadow: 2px 2px 2px $black;
+  border-radius: 10px;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.indicator-card-icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.indicator-card-message-container {
+  flex-direction: row;
+  color: $white;
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+}
+
+.indicator-card-action-container {
+  margin: 10px;
+  padding-top: 20px;
+}

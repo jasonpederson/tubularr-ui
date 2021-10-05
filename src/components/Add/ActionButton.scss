@@ -1,0 +1,50 @@
+@import '../../constants/colorCodes.scss';
+
+.action-button-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 3px;
+}
+
+.action-button {
+  display: flex;
+  justify-content: center;
+  height: 47px;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+  color: $white;
+  cursor: pointer;
+}
+
+.light {
+  border: 2px solid $backgroundLight;
+  background-color: $backgroundLight;
+}
+
+.dark {
+  border: 2px solid $backgroundDark;
+  background-color: $backgroundDark;
+}
+
+.secondary-action-button-light {
+  border: 2px solid $backgroundLight;
+}
+
+.secondary-action-button-dark {
+  border: 2px solid $backgroundDark;
+}
+
+.dark:hover, .light:hover {
+  border: 2px solid $highlight;
+  background-color: $highlight;
+}
+
+.secondary-action-button-dark:hover,
+.secondary-action-button-light:hover
+ {
+  border: 2px solid $highlight;
+}

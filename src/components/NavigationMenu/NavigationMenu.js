@@ -12,7 +12,7 @@ export default function Sidebar() {
             <NavigationMenuItem 
               key={ listItem.title }
               item={ listItem }
-              childrenItems={ listItem.children }
+              subMenuItems={ listItem.subMenuItems }
             />
           );
         })

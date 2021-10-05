@@ -8,14 +8,10 @@ export default [
     'iconName': 'tubes',
     'path': '/monitored',
     'title': 'Monitored',
-    'children': [
+    'subMenuItems': [
       {
-        'title': 'Add New Channel',
-        'path': '/monitored/add/channel',
-      },
-      {
-        'title': 'Add New Playlist',
-        'path': '/monitored/add/playlist',
+        'title': 'Add New',
+        'path': '/monitored/add'
       }
     ]
   },
@@ -23,7 +19,7 @@ export default [
     'iconName': 'queue',
     'title': 'Queue',
     'path': '/queue',
-    'children': [
+    'subMenuItems': [
       {
         'title': 'Active',
         'path': '/queue/active',
