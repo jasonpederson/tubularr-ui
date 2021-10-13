@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import TextInput from './TextInput';
 import AddNewDetailsForm from './AddNewDetailsForm';
 import ActionButton from './ActionButton';
-import { addNewActions } from '../../containers/addNew/index';
-import IndicatorCard from '../Shared/IndicatorCard';
+import { sourceActions } from '../../../containers/source/index';
+import IndicatorCard from '../../Shared/IndicatorCard';
 import AddNewFailureActions from './AddNewFailureActions';
 import AddNewSuccessActions from './AddNewSuccessActions'
 
 import urlPatterns from './constants/urlPatterns';
-import determineUrlType from '../../utils/determineUrlType';
-import makeHumanReadable from '../../utils/makeHumanReadable';
+import determineUrlType from '../../../utils/determineUrlType';
+import makeHumanReadable from '../../../utils/makeHumanReadable';
 
 import './AddNew.scss';
 
@@ -22,7 +22,8 @@ class AddNew extends Component {
       url: '',
       urlValidated: false,
       type: '',
-      sourceKey: ''
+      sourceKey: '',
+      directory: ''
     }
   }
 
@@ -31,7 +32,8 @@ class AddNew extends Component {
       url: '',
       urlValidated: false,
       type: '',
-      sourceKey: ''
+      sourceKey: '',
+      directory: ''
     });
   }
 
@@ -43,10 +45,10 @@ class AddNew extends Component {
     this.resetState();
   }
 
-  onChange = (value) => {
+  onChange = (value, key) => {
     return this.setState({
-      url: value,
-      urlValidated: false
+      [key]: value,
+      urlValidated: key === 'url' ? false : this.state.urlValidated
     });
   }
 
@@ -58,6 +60,7 @@ class AddNew extends Component {
       this.setState({
         type: parsedUrl.type,
         sourceKey: parsedUrl.value,
+        directory: parsedUrl.value,
         urlValidated: true
       });
     }
@@ -83,7 +86,7 @@ class AddNew extends Component {
   }
 
   render() {
-    const { addNewInProgress, addNewCompleted, addNewError } = this.props;
+    const { addSourceInProgress, addSourceCompleted, addSourceError } = this.props;
     return (
       <div className='add-new-container'>
         <div className='add-new-input-container'>
@@ -91,28 +94,28 @@ class AddNew extends Component {
             value={this.state.url}
             autoFocusFlag={ true }
             onChange={ this.onChange }
-            active={ !(addNewInProgress || addNewCompleted || addNewError)  }
+            active={ !(addSourceInProgress || addSourceCompleted || addSourceError)  }
           />
         </div>
-        { !this.state.urlValidated && !addNewInProgress && !(addNewCompleted || addNewError) &&
+        { !this.state.urlValidated && !addSourceInProgress && !(addSourceCompleted || addSourceError) &&
           <div className='verify-button-container'>
             <ActionButton className='verify-button' label={ 'Verify' } onClick={ this.onValidateUrl } />
           </div>
         }
-        { this.state.urlValidated && !addNewInProgress && !(addNewCompleted || addNewError) &&
+        { this.state.urlValidated && !addSourceInProgress && !(addSourceCompleted || addSourceError) &&
           <div className='add-new-form-container'>
             <div>
               <h1>{ makeHumanReadable(this.state.type) } Details</h1>
             </div>
-            <AddNewDetailsForm onSubmit={ this.onSubmit } sourceKey={ this.state.sourceKey }/>
+            <AddNewDetailsForm onSubmit={ this.onSubmit } sourceKey={ this.state.sourceKey } directory={ this.state.directory } onChange={ this.onChange }/>
           </div>
         }
-        { (addNewCompleted || addNewError) &&
+        { (addSourceCompleted || addSourceError) &&
           <div className='add-new-indicator-card-container'>
             <IndicatorCard 
-              isError={ addNewError } 
-              message={ addNewError ? 'Failure Adding New Channel or Playlist' : 'Successfully Added!'}
-              actions={ addNewError ?
+              isError={ addSourceError } 
+              message={ addSourceError ? 'Failure Adding New Channel or Playlist' : 'Successfully Added!'}
+              actions={ addSourceError ?
                 <AddNewFailureActions onRetry={ this.onRetry }/> 
                 :
                 <AddNewSuccessActions onDone={ this.onDone } onAddAnother={ this.onAddAnother } />
@@ -128,22 +131,22 @@ class AddNew extends Component {
 
 function mapStateToProps(state) {
   return {
-    addNewInProgress: state.addNewReducer.get('addNewInProgress'),
-    addNewCompleted: state.addNewReducer.get('addNewCompleted'),
-    addNewError: state.addNewReducer.get('addNewError')
+    addSourceInProgress: state.sourceReducer.get('addSourceInProgress'),
+    addSourceCompleted: state.sourceReducer.get('addSourceCompleted'),
+    addSourceError: state.sourceReducer.get('addSourceError')
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     addNewChannelOrPlaylist: (payload) => {
-      dispatch(addNewActions.addNewStarted(payload));
+      dispatch(sourceActions.addSourceStarted(payload));
     },
     addNewRetry: () => {
-      dispatch(addNewActions.addNewRetry());
+      dispatch(sourceActions.addSourceRetry());
     },
     resetProcess: () => {
-      dispatch(addNewActions.addNewReset());
+      dispatch(sourceActions.addSourceReset());
     }
   };
 }

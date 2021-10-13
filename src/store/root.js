@@ -1,10 +1,10 @@
 import { combineEpics } from 'redux-observable';
 import { combineReducers } from 'redux';
 import { catchError } from 'rxjs/operators';
-import { addNewReducer, addNewEpics } from '../containers/addNew/index';
+import { sourceReducer, sourceEpics } from '../containers/source/index';
 
 const epics = combineEpics(
-  ...addNewEpics
+  ...sourceEpics
 );
 
 const rootEpic = (action$, store$, dependencies) =>
@@ -16,7 +16,7 @@ const rootEpic = (action$, store$, dependencies) =>
 );
 
 const rootReducer = combineReducers({
-  addNewReducer
+  sourceReducer
 });
 
 export { rootEpic, rootReducer }

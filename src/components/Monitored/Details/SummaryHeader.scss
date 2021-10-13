@@ -1,0 +1,72 @@
+@import '../../../constants/colorCodes';
+
+.monitored-details-summary-container {
+  display: flex;
+  height: 250px;
+}
+
+.monitored-details-summary-row {
+  display: flex;
+  flex-direction: row;
+  align-self: stretch;
+}
+
+.spacing {
+  margin-top: 10px;
+}
+
+.monitored-thumbnail-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.monitored-item-thumbnail {
+  display: flex;
+  background-color: $highlight;
+  height: 200px;
+  width: 300px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 1px $black;
+}
+
+.details-no-thumbnail-icon {
+  color: $white;
+  font-size: 60px;
+}
+
+.monitored-details-summary-column {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+
+.selected-source-name {
+  margin-top: 20px;
+  color: $white;
+  font-size: 36px;
+}
+
+.selected-source-key {
+  color: $highlight;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.monitored-details-summary-item-container {
+  display: flex;
+  padding: 5px;
+  margin-right: 20px;
+  flex-direction: row;
+  background-color: $backgroundLight;
+  color: $white;
+};
+
+.monitored-details-summary-item-header {
+  color: $white;
+  font-size: 12px;
+  margin-left: 5px;
+}

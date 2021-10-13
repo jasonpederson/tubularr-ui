@@ -1,0 +1,82 @@
+@import '../../../constants/colorCodes';
+
+.monitored-item-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 200px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+}
+
+.monitored-item-thumbnail-container {
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: rgba(202, 62, 71, 0.9);
+  justify-content: center;
+  text-align: center;
+}
+
+.thumbnail-hover {
+  border-top: 1px dashed $white;
+  border-left: 1px dashed $white;
+  border-right: 1px dashed $white;
+}
+
+.no-thumbnail-icon {
+  font-size: 60px;
+  color: $white
+}
+
+.monitored-item-details-container {
+  display: flex;
+  flex: 3;
+  padding-top: 10px;
+  flex-direction: column;
+  background-color: $backgroundHightlight;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 2px 1px $black;
+}
+
+.monitored-item-detail-row {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+
+.name {
+  color: $black;
+  margin-top: 2px;
+}
+
+.sourceKey {
+  color: $textDark;
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+.last-indexed-container {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-bottom: 5px;
+}
+
+.last-indexed-text {
+  text-align: right;
+  font-size: 12px;
+  padding-right: 7px;
+  color: $textDark;
+}
