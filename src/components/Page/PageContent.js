@@ -1,7 +1,9 @@
 import React from 'react';
 import { Switch, Route} from 'react-router-dom';
 import Dashboard from '../Dashboard/Dashboard';
-import AddNew from '../Add/AddNew';
+import AddNew from '../Monitored/Add/AddNew';
+import Monitored from '../Monitored/Index/Monitored';
+import MonitoredDetails from '../Monitored/Details/MonitoredDetails';
 import Queue from '../Queue/Queue';
 import Settings from '../Settings/Settings';
 import './PageContent.scss';
@@ -12,6 +14,8 @@ export default function PageContent() {
       <Switch>
         <Route path="/dashboard" component={ Dashboard } />
         <Route path="/monitored/add" component={ AddNew } />
+        <Route path="/monitored/details/:uuid" component={ MonitoredDetails } />
+        <Route path="/monitored/" component={ Monitored } />
         <Route path="/queue" component={ Queue } />
         <Route path="/settings" component={ Settings } />
       </Switch>

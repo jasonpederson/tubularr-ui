@@ -1,0 +1,32 @@
+.monitored-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-self: stretch;
+  padding-top: 20px;
+}
+
+.monitored-loading-indicator-container {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.monitored-items-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: stretch;
+  height: 300px;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.monitored-indicator-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}

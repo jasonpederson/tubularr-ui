@@ -10,7 +10,7 @@ export default function TextInput({ value, onChange, autoFocusFlag, active = tru
           value={ value }
           placeholder='Channel or Playlist URL'
           autoFocus={ autoFocusFlag }
-          onChange={ e => onChange(e.target.value) }
+          onChange={ e => onChange(e.target.value, 'url') }
           disabled={ !active }
         />
     </div>

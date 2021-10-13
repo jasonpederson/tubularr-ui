@@ -7,7 +7,7 @@ import videoOptions from './constants/videoOptions';
 
 import './AddNewDetailsForm.scss';
 
-export default function AddNewDetailsForm({ sourceKey, onSubmit }) {
+export default function AddNewDetailsForm({ sourceKey, directory, onSubmit, onChange }) {
   const { register, handleSubmit } = useForm();
   const [ useSubtitles, setUseSubtitles ] = useState(false);
 
@@ -16,12 +16,12 @@ export default function AddNewDetailsForm({ sourceKey, onSubmit }) {
     <form>
       <div className='form-row'>
         <input {...register('name')} placeholder='Title' />
-        <input {...register('sourceKey')} placeholder='Source Key' value={ sourceKey } />
+        <input {...register('sourceKey')} placeholder='Source Key' value={ sourceKey } onChange={(event) => { onChange(event.target.value, 'sourceKey') }} />
       </div>
       <div className='form-row'>
         <label className='form-input-label'>
           <span className='form-input-label-text'>Save Directory Name</span>
-          <input {...register('directory')} value={ sourceKey }/>
+          <input {...register('directory')} value={ directory } onChange={(event) => { onChange(event.target.value, 'directory') }}/>
         </label>
         <label className='form-input-label'>
           <span className='form-input-label-text'>File Name Format</span>

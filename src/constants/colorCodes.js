@@ -1,7 +1,8 @@
 const colorCodes = {
   backgroundDark: '#313131',
   backgroundLight: '#414141',
-  textDark: '#525252',
+  backgroundHightlight: '#afafaf',
+  textDark: '#313131',
   textLight: '#F3F1F5',
   highlight: '#CA3E47',
   white: '#ffffff',

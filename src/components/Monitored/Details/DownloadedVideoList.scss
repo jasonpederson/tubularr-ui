@@ -1,0 +1,26 @@
+@import '../../../constants/colorCodes';
+
+.downloaded-video-list-container {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  background-color: $backgroundLight;
+}
+
+.list-row {
+  display: flex;
+  align-self: stretch;
+  flex-direction: row;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.header {
+  background-color: $backgroundHightlight;
+}
+
+.header-value {
+  color: $textDark
+}
