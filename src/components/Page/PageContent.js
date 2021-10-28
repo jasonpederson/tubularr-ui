@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route} from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Dashboard from '../Dashboard/Dashboard';
 import AddNew from '../Monitored/Add/AddNew';
 import Monitored from '../Monitored/Index/Monitored';
@@ -12,6 +12,9 @@ export default function PageContent() {
   return (
     <div className='page-content-container'>
       <Switch>
+        <Route exact path="/">
+          <Redirect to="/dashboard" />
+        </Route>
         <Route path="/dashboard" component={ Dashboard } />
         <Route path="/monitored/add" component={ AddNew } />
         <Route path="/monitored/details/:uuid" component={ MonitoredDetails } />

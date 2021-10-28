@@ -1,10 +1,14 @@
 import { combineEpics } from 'redux-observable';
 import { combineReducers } from 'redux';
 import { catchError } from 'rxjs/operators';
-import { sourceReducer, sourceEpics } from '../containers/source/index';
+import { sourceReducer, sourceEpics } from '../containers/sources/index';
+import { dashboardReducer, dashboardEpics } from '../containers/dashboard/index';
+import { queueReducer, queueEpics } from '../containers/queue/index';
 
 const epics = combineEpics(
-  ...sourceEpics
+  ...sourceEpics,
+  ...dashboardEpics,
+  ...queueEpics
 );
 
 const rootEpic = (action$, store$, dependencies) =>
@@ -16,7 +20,9 @@ const rootEpic = (action$, store$, dependencies) =>
 );
 
 const rootReducer = combineReducers({
-  sourceReducer
+  sourceReducer,
+  dashboardReducer,
+  queueReducer
 });
 
 export { rootEpic, rootReducer }

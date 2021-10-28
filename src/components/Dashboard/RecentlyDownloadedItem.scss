@@ -1,0 +1,37 @@
+@import '../../constants/colorCodes';
+
+.recently-downloaded-item-container {
+  display: flex;
+  flex-direction: column;
+  height: 75px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.recently-downloaded-item-row {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2px;
+}
+
+.recently-downloaded-item-title {
+  flex: 1;
+  text-align: left;
+  color: $white;
+  font-size: 18px;
+}
+
+.recently-downloaded-item-time {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: $white;
+}
+
+.recently-downloaded-item-channel {
+  flex: 1;
+  text-align: left;
+  font-size: 12px;
+  color: $white;
+}

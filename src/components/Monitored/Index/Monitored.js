@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BarLoader from "react-spinners/BarLoader";
-import { sourceActions } from '../../../containers/source/index';
-import MonitoredItemCard from './MonitoredItemCard';
+import { sourceActions } from '../../../containers/sources/index';
+import MonitoredItemCard from '../../Shared/MonitoredItemCard';
 import IndicatorCard from '../../Shared/IndicatorCard';
 
-import findSourceItem from '../../../containers/source/utils/findSourceItem';
+import findSourceItem from '../../../containers/sources/utils/findSourceItem';
 
 import './Monitored.scss';
 import colorCodes from '../../../constants/colorCodes';
@@ -18,6 +18,7 @@ class Monitored extends Component {
       hoveredItemUuid: undefined
     }
   }
+  
   componentDidMount() {
     this.props.getMonitoredItems();
   }
@@ -33,13 +34,13 @@ class Monitored extends Component {
     }
   }
 
-  onMouseEnter = ( itemUuid ) => {
+  onMouseEnter = (itemUuid) => {
     return this.setState({
       hoveredItemUuid: itemUuid
     });
   }
 
-  onMouseExit = (  ) => {
+  onMouseExit = () => {
     return this.setState({
       hoveredItemUuid: undefined
     });
@@ -97,7 +98,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => {
   return {
     getMonitoredItems: () => {
-      dispatch(sourceActions.getSourcesStarted())
+      dispatch(sourceActions.getSources())
     },
     setSelectedSource: (payload) => {
       dispatch(sourceActions.setSelectedSource(payload))

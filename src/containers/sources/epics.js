@@ -15,14 +15,34 @@ action$.pipe(
       })
         .then(response => response.json())
         .then((jsonReponse) => {
-          console.log('Get Sources Completed', jsonReponse);
 					return actions.getSourcesCompleted(jsonReponse);
         }).catch(function (error) {
-					console.log('Get Sources Failed', error);
 					return actions.getSourcesFailed(error);
 				})
 		} catch (error) {
 			return actions.getSourcesFailed(error);
+		}
+	})
+)
+
+export const getSingleSource = (action$) =>
+action$.pipe(
+	ofType(actionTypes.GET_SINGLE_SOURCE_STARTED),
+	mergeMap(async (action) => {
+    const uuid = action.payload;
+    try {
+			return fetch(`http://localhost:8080/source?uuid=${uuid}`, {
+				method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+      })
+        .then(response => response.json())
+        .then((jsonReponse) => {
+					return actions.getSingleSourceCompleted(jsonReponse);
+        }).catch(function (error) {
+					return actions.getSingleSourceFailed(error);
+				})
+		} catch (error) {
+			return actions.getSingleSourceFailed(error);
 		}
 	})
 )
@@ -39,10 +59,8 @@ action$.pipe(
         body: JSON.stringify(normalizedValues)
       })
         .then((response) => {
-          console.log('Response json', response);
 					return actions.addSourceCompleted();
         }).catch(function (error) {
-					console.log('Add Source Failed', error);
 					return actions.addSourceFailed(error);
 				})
 		} catch (error) {

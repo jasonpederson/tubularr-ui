@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TextInput from './TextInput';
 import AddNewDetailsForm from './AddNewDetailsForm';
 import ActionButton from './ActionButton';
-import { sourceActions } from '../../../containers/source/index';
+import { sourceActions } from '../../../containers/sources/index';
 import IndicatorCard from '../../Shared/IndicatorCard';
 import AddNewFailureActions from './AddNewFailureActions';
 import AddNewSuccessActions from './AddNewSuccessActions'

@@ -1,0 +1,21 @@
+@import '../../../constants/colorCodes';
+
+.list-container {
+  display: flex;
+  flex: 1;
+  margin: 30px;
+  flex-direction: column;
+  min-width: 450px;
+  max-height: 400px;
+  border-radius: 20px;
+  background-color: $backgroundMedium;
+  overflow: hidden
+}
+
+.list-container-header-container {
+  color: $textLight;
+  font-size: 32px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 20px;
+}
