@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from "react-router-dom";
+import { sourceActions } from '../../../containers/sources/index';
 import SummaryHeader from './SummaryHeader';
 import DownloadedVideoList from './DownloadedVideoList';
 
 import './MonitoredDetails.scss';
 
 class MonitoredDetails extends Component {
-
   componentDidMount() {
     const { selectedSource } = this.props;
+    const { uuid } = this.props.match.params;
 
-    // TODO Get the UUID from URL and set the selected source so we can just load in place
-    if (!selectedSource.name) {
-      this.props.history.push('/monitored')
+    if ((selectedSource && !selectedSource.uuid) || (selectedSource && selectedSource.uuid !== uuid) ) {
+      this.props.getSourceDetails(uuid);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.uuid !== prevProps.match.params.uuid) {
+      this.props.getSourceDetails(uuid);
     }
   }
 
@@ -20,10 +27,14 @@ class MonitoredDetails extends Component {
     const { selectedSource } = this.props;
 
       return (
-      <div className='monitored-details-container'>
-        <SummaryHeader selectedSource={ selectedSource }/>
-        <DownloadedVideoList />
-      </div>
+        <>
+          { selectedSource && selectedSource.uuid &&
+            <div className='monitored-details-container'>
+              <SummaryHeader selectedSource={ selectedSource }/>
+              <DownloadedVideoList />
+            </div>
+          }
+        </>
     );
   }
 }
@@ -37,7 +48,10 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
+    getSourceDetails: (payload) => {
+      dispatch(sourceActions.getSingleSource(payload))
+    }
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MonitoredDetails);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MonitoredDetails));

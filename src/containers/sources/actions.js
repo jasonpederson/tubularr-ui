@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 
-export const getSourcesStarted = payload => ({
+export const getSources = payload => ({
   type: actionTypes.GET_SOURCES_STARTED,
   payload
 });
@@ -10,6 +10,18 @@ export const getSourcesCompleted = payload => ({
 });
 export const getSourcesFailed = payload => ({
   type: actionTypes.GET_SOURCES_FAILED,
+  payload
+});
+export const getSingleSource = payload => ({
+  type: actionTypes.GET_SINGLE_SOURCE_STARTED,
+  payload
+});
+export const getSingleSourceCompleted = payload => ({
+  type: actionTypes.GET_SINGLE_SOURCE_COMPLETED,
+  payload
+});
+export const getSingleSourceFailed = payload => ({
+  type: actionTypes.GET_SINGLE_SOURCE_FAILED,
   payload
 });
 export const setSelectedSource = payload => ({

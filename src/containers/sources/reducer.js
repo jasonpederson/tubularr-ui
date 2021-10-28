@@ -6,6 +6,8 @@ const _initialState = fromJS({
   sources: [],
   getSourcesError: undefined,
   selectedSource: {},
+  getSourceInProgress: false,
+  getSourceError: undefined,
   addSourceInProgress: false,
   addSourceCompleted: false,
   addSourceError: ''
@@ -24,6 +26,18 @@ const sourceReducer = (state = _initialState, action) => {
     case actionTypes.GET_SOURCES_FAILED: {
       return state.set('getSourcesInProgress', false)
       .set('getSourcesError', action.payload)
+    }
+    case actionTypes.GET_SINGLE_SOURCE_STARTED: {
+      return state.set('getSourceInProgress', true)
+        .set('getSourceError', undefined)
+    }
+    case actionTypes.GET_SINGLE_SOURCE_COMPLETED: {
+      return state.set('getSourceInProgress', false)
+        .set('selectedSource', action.payload)
+    }
+    case actionTypes.GET_SINGLE_SOURCE_FAILED: {
+      return state.set('getSourceInProgress', false)
+      .set('getSourceError', action.payload)
     }
     case actionTypes.SET_SELECTED_SOURCE: {
       return state.set('selectedSource', action.payload);

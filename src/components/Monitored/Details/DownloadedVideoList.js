@@ -7,9 +7,9 @@ export default function DownloadedVideoList({  }) {
   return (
     <div className='downloaded-video-list-container'>
       <div className='list-row header'>
-        { downloadedVideoListColumns.map((column) => {
+        { downloadedVideoListColumns.map((column, index) => {
           return (
-            <div className='header-value' style={{ flex: column.flexSize }}>{ column.value }</div>
+            <div className='header-value' key={ index } style={{ flex: column.flexSize }}>{ column.value }</div>
           )
         })
         }
