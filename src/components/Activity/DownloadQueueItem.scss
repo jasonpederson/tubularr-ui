@@ -1,0 +1,42 @@
+@import '../../constants/colorCodes';
+
+.download-queue-item-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px 0 10px;
+}
+
+.download-queue-item-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.download-queue-item-title {
+  flex: 1;
+  text-align: left;
+  color: $white;
+  font-size: 18px;
+}
+
+.download-queue-item-channel {
+  flex: 1;
+  text-align: left;
+  font-size: 15px;
+  color: $white;
+}
+
+.download-queue-item-details-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: right;
+}
+
+.download-queue-item-details-item {
+  color: $white;
+  font-size: 12px;
+  padding: 1px 10px 1px 10px;
+  border-radius: 5px;
+  margin-left: 5px;
+  background-color: $backgroundLight;
+}

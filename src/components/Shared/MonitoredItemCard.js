@@ -1,10 +1,10 @@
 import React from 'react';
-import classnames from 'classnames';
-import { YoutubeFilled } from '@ant-design/icons';
+import ChannelThumbnail from './ChannelThumbnail';
+import PlaylistThumbnail from './PlaylistThumbnail';
 
 import './MonitoredItemCard.scss';
 
-export default function MonitoredItemCard({ item, hoveredItemUuid, onClick, onMouseEnterHanlder, onMouseExitHandler }) {
+export default function MonitoredItemCard({ item, hoveredItemUuid, onClick, onMouseEnterHanlder, onMouseExitHandler, isPlaylist }) {
   return (
     <div 
       className='monitored-item-container' 
@@ -12,8 +12,12 @@ export default function MonitoredItemCard({ item, hoveredItemUuid, onClick, onMo
       onMouseLeave={ () => { onMouseExitHandler(item.uuid) }}
       onClick={() => { onClick( item.uuid )}}
     >
-      <div className={classnames('monitored-item-thumbnail-container', {'thumbnail-hover': hoveredItemUuid === item.uuid })}>
-        <YoutubeFilled className='no-thumbnail-icon' />
+      <div className='monitored-item-thumbnail-container'>
+        { isPlaylist ?
+            <PlaylistThumbnail thumbnail={ false } />
+          : 
+            <ChannelThumbnail thumbnail={ false } />
+        }
       </div>
       <div className='monitored-item-details-container'>
         <div className='monitored-item-detail-row name'>

@@ -1,0 +1,32 @@
+@import '../../constants/colorCodes';
+
+.queue-selector-container {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  align-self: stretch;
+  background-color: $backgroundMedium;
+}
+
+.queue-selector-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 35px;
+  margin-top: 5px;
+  margin-left: 20px;
+  color: $white;
+  padding-left: 5px;
+  padding-right: 5px;
+};
+
+.queue-selector-button:hover, .selected {
+  border-bottom: 1px solid $highlight;
+  cursor: pointer;
+}
+
+.queue-selctor-text {
+  color: $white;
+  padding-top: 3px;
+}

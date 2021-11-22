@@ -2,12 +2,12 @@ import { combineEpics } from 'redux-observable';
 import { combineReducers } from 'redux';
 import { catchError } from 'rxjs/operators';
 import { sourceReducer, sourceEpics } from '../containers/sources/index';
-import { dashboardReducer, dashboardEpics } from '../containers/dashboard/index';
+import { videoReducer, videoEpics } from '../containers/videos/index';
 import { queueReducer, queueEpics } from '../containers/queue/index';
 
 const epics = combineEpics(
   ...sourceEpics,
-  ...dashboardEpics,
+  ...videoEpics,
   ...queueEpics
 );
 
@@ -21,7 +21,7 @@ const rootEpic = (action$, store$, dependencies) =>
 
 const rootReducer = combineReducers({
   sourceReducer,
-  dashboardReducer,
+  videoReducer,
   queueReducer
 });
 

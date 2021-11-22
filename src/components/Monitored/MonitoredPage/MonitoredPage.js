@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import BarLoader from "react-spinners/BarLoader";
+import BarLoader from 'react-spinners/BarLoader';
 import { sourceActions } from '../../../containers/sources/index';
 import MonitoredItemCard from '../../Shared/MonitoredItemCard';
 import IndicatorCard from '../../Shared/IndicatorCard';
 
 import findSourceItem from '../../../containers/sources/utils/findSourceItem';
 
-import './Monitored.scss';
+import './MonitoredPage.scss';
 import colorCodes from '../../../constants/colorCodes';
 
-class Monitored extends Component {
+class MonitoredPage extends Component {
   constructor(props) {
     super(props)
 
@@ -65,7 +65,7 @@ class Monitored extends Component {
           <>
             { sources.length > 0 &&
               <div className='monitored-items-container'>
-              { sources.map((item) => {
+              { sources.map((item, index) => {
                 return (
                   <MonitoredItemCard 
                     key={ item.uuid }
@@ -74,6 +74,7 @@ class Monitored extends Component {
                     onMouseEnterHanlder={ this.onMouseEnter} 
                     onMouseExitHandler={ this.onMouseExit }
                     hoveredItemUuid={ hoveredItemUuid }
+                    isPlaylist={ index % 4 === 1} // HACK: To remove once flag is passed in
                   />
                 )})
               }
@@ -106,4 +107,4 @@ const mapDispatchToProps = dispatch => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Monitored);
+export default connect(mapStateToProps, mapDispatchToProps)(MonitoredPage);

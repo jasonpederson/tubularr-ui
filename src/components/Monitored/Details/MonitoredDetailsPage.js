@@ -5,9 +5,9 @@ import { sourceActions } from '../../../containers/sources/index';
 import SummaryHeader from './SummaryHeader';
 import DownloadedVideoList from './DownloadedVideoList';
 
-import './MonitoredDetails.scss';
+import './MonitoredDetailsPage.scss';
 
-class MonitoredDetails extends Component {
+class MonitoredDetailsPage extends Component {
   componentDidMount() {
     const { selectedSource } = this.props;
     const { uuid } = this.props.match.params;
@@ -54,4 +54,4 @@ const mapDispatchToProps = dispatch => {
   };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MonitoredDetails));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MonitoredDetailsPage));

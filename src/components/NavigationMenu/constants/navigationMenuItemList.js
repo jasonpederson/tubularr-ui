@@ -1,11 +1,11 @@
 export default [
   {
-    'iconName': 'dashboard',
-    'path': '/dashboard',
-    'title': 'Dashboard',
+    'iconName': 'videos',
+    'path': '/videos',
+    'title': 'Videos',
   },
   {
-    'iconName': 'tubes',
+    'iconName': 'monitored',
     'path': '/monitored',
     'title': 'Monitored',
     'subMenuItems': [
@@ -16,19 +16,9 @@ export default [
     ]
   },
   {
-    'iconName': 'queue',
-    'title': 'Queue',
-    'path': '/queue',
-    'subMenuItems': [
-      {
-        'title': 'Active',
-        'path': '/queue/active',
-      },
-      {
-        'title': 'Completed',
-        'path': '/queue/completed',
-      }
-    ]
+    'iconName': 'activity',
+    'title': 'Activity',
+    'path': '/activity'
   },
   {
     'iconName': 'settings',
