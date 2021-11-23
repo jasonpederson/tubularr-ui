@@ -3,8 +3,7 @@ import DownloadQueueItem from './DownloadQueueItem';
 
 import './DownloadQueue.scss';
 
-export default function DownloadQueue({ downloadQueue  }) {
-  console.log('Download Queue', downloadQueue);
+export default function DownloadQueue({ downloadQueue = [] }) {
   return (
     <div className='download-queue-container'>
       { downloadQueue.map((queueItem) => {

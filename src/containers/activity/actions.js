@@ -1,5 +1,9 @@
 import * as actionTypes from './actionTypes';
 
+export const setActivityViewType = payload => ({
+  type: actionTypes.SET_ACTIVITY_VIEW_TYPE,
+  payload
+});
 export const getDownloadQueue = payload => ({
   type: actionTypes.GET_DOWNLOAD_QUEUE_STARTED,
   payload

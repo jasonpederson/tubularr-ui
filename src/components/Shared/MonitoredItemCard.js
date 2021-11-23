@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ChannelThumbnail from './ChannelThumbnail';
 import PlaylistThumbnail from './PlaylistThumbnail';
 
 import './MonitoredItemCard.scss';
 
 export default function MonitoredItemCard({ item, hoveredItemUuid, onClick, onMouseEnterHanlder, onMouseExitHandler, isPlaylist }) {
+  const [ isHovered, setIsHovered ] = useState(false);
+
   return (
     <div 
       className='monitored-item-container' 
-      onMouseEnter={ () =>{ onMouseEnterHanlder(item.uuid) } }
-      onMouseLeave={ () => { onMouseExitHandler(item.uuid) }}
+      onMouseEnter={ () =>{ setIsHovered(true) } }
+      onMouseLeave={ () => { setIsHovered(false) }}
       onClick={() => { onClick( item.uuid )}}
     >
       <div className='monitored-item-thumbnail-container'>
         { isPlaylist ?
-            <PlaylistThumbnail thumbnail={ false } />
+            <PlaylistThumbnail thumbnail={ false } isHovered={ isHovered } />
           : 
-            <ChannelThumbnail thumbnail={ false } />
+            <ChannelThumbnail thumbnail={ false } isHovered={ isHovered } />
         }
       </div>
       <div className='monitored-item-details-container'>

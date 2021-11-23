@@ -8,7 +8,7 @@
 
 .playlist-thumnail {
   display: flex;
-  flex: 5;
+  flex: 7;
   flex-direction: column;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -17,28 +17,39 @@
   text-align: center;
 }
 
+.side-borders {
+  border-left: 1px dashed $white;
+  border-right: 1px dashed $white;
+}
+
+.top-border {
+  border-top: 1px dashed $white;
+}
+
 .paylist-tier-one {
   flex: 1;
-  border-width: 3px 3px 0px 3px;
-  border-style: solid;
-  border-color: $backgroundLight;
-  //border-color: rgba(202, 62, 71, 0.9);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   margin-right: 10px;
   margin-left: 10px;
-  background-color: $backgroundMedium;
 }
 
 .paylist-tier-two {
   flex: 1;
-  border-width: 3px 3px 0px 3px;
-  border-style: solid;
-  border-color: $backgroundLight;
-  //border-color: rgba(202, 62, 71, 0.9);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   margin-right: 20px;
   margin-left: 20px;
+}
+
+.background-dark {
   background-color: $backgroundDark;
+}
+
+.background-medium {
+  background-color: $backgroundMedium;
+}
+
+.background-light {
+  background-color: $backgroundLight;
 }

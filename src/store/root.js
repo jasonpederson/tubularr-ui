@@ -3,12 +3,12 @@ import { combineReducers } from 'redux';
 import { catchError } from 'rxjs/operators';
 import { sourceReducer, sourceEpics } from '../containers/sources/index';
 import { videoReducer, videoEpics } from '../containers/videos/index';
-import { queueReducer, queueEpics } from '../containers/queue/index';
+import { activityReducer, activityEpics } from '../containers/activity/index';
 
 const epics = combineEpics(
   ...sourceEpics,
   ...videoEpics,
-  ...queueEpics
+  ...activityEpics
 );
 
 const rootEpic = (action$, store$, dependencies) =>
@@ -22,7 +22,7 @@ const rootEpic = (action$, store$, dependencies) =>
 const rootReducer = combineReducers({
   sourceReducer,
   videoReducer,
-  queueReducer
+  activityReducer
 });
 
 export { rootEpic, rootReducer }

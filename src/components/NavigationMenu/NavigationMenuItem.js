@@ -11,7 +11,7 @@ import './NavigationMenuItem.scss';
 export default function navigationMenuItem({ item, subMenuItems }) {
   const location = useLocation();
   const routerHistory = useHistory();
-  const currentItemActive = isActivePath(location.pathname, item);
+  const currentItemActive = isActivePath(location.pathname, item.title);
 
   return (
     <div className='navigation-menu-item-container'>

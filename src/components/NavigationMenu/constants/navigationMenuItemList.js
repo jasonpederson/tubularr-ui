@@ -18,7 +18,7 @@ export default [
   {
     'iconName': 'activity',
     'title': 'Activity',
-    'path': '/activity'
+    'path': '/activity/queue'
   },
   {
     'iconName': 'settings',

@@ -1,3 +1,5 @@
+@import '../../constants/colorCodes.scss';
+
 .channel-thumbnail-container {
   display: flex;
   flex: 1;
@@ -7,4 +9,10 @@
   background-color: rgba(202, 62, 71, 0.9);
   justify-content: center;
   text-align: center;
+}
+
+.hovered {
+  border-top: 1px dashed $white;
+  border-left: 1px dashed $white;
+  border-right: 1px dashed $white;
 }
